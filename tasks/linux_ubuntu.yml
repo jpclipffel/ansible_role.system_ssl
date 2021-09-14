@@ -1,0 +1,15 @@
+# code: language=Ansible tabSize=2
+
+- name: Copy certificates
+  copy:
+    src: "{{ item }}"
+    dest: "/usr/local/share/ca-certificates/{{ item | basename }}"
+  loop: "{{ system_ssl_list_crt }}"
+  tags: [never, setup, skip_ansible_lint]
+
+- name: Update ca-certificate
+  shell: |
+    update-ca-certificates -f
+  tags: [never, setup, skip_ansible_lint]
+
+# ---

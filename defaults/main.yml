@@ -1,0 +1,2 @@
+# List of certificates files in .crt (suitable for update-ca-certificate)
+system_ssl_list_crt: []
