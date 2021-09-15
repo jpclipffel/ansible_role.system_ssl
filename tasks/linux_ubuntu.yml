@@ -3,7 +3,7 @@
 - name: Copy certificates
   copy:
     src: "{{ item }}"
-    dest: "/usr/local/share/ca-certificates/{{ item | basename }}"
+    dest: "/usr/local/share/ca-certificates/{{ item | basename | splitext | first }}.crt"
   loop: "{{ system_ssl_list_crt }}"
   tags: [never, setup, skip_ansible_lint]
 
