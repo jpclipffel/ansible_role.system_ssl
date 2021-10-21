@@ -1,5 +1,6 @@
 # code: language=Ansible tabSize=2
 
+
 - name: Copy certificates
   copy:
     src: "{{ item }}"
@@ -11,5 +12,3 @@
   shell: |
     update-ca-certificates -f
   tags: [never, setup, skip_ansible_lint]
-
-# ---
